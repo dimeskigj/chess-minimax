@@ -11,5 +11,4 @@ I've tested this against a ~550 elo chess.com bot and it manages to win/lead. Ha
 
 I am using the chess python library. You can use the standard move notation to play with the computer.
 
-sample game against a ~1000 elo lichess player (my friend), with the computer playing as white:
-https://lichess.org/PDoaR6C5ztwF
+[sample game against a ~1000 elo lichess player](https://lichess.org/PDoaR6C5ztwF) (my friend), with the computer playing as white.
