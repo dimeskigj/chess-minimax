@@ -9,7 +9,7 @@ Besides this, I've implemented alpha-beta pruning to make the algorithm somewhat
 
 I've tested this against a ~550 elo chess.com bot and it manages to win/lead. Haven't tested with better bots.
 
-I am using the chess python library. You can use the standard move notation to play with the computer.\
+I am using the chess python library. You can use the standard move notation to play with the computer.
 
-sample game against a ~1000 elo lichess player (my friend):
+sample game against a ~1000 elo lichess player (my friend), with the computer playing as white:
 https://lichess.org/PDoaR6C5ztwF
