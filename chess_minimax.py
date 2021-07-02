@@ -3,18 +3,27 @@ import time as t
 
 import chess
 
+#I've defined the value of each piece
 PIECE_VALUE = {"P": 1, "N": 3, "B": 3, "R": 5, "Q": 9, "K": 1000,
                "p": -1, "n": -3, "b": -3, "r": -5, "q": -9, "k": -1000}
+#I've defined the extra value of each position for the pieces, 
+#I want the pieces to control the centre, 
+#plus some positions for each piece that are considered optimal 
 CENTRE = (18, 19, 20, 21, 25, 26, 27, 28, 34, 35, 36, 37, 42, 43, 44, 45)
 BISHOP_SQUARES = (33, 25, 30, 38)
 KNIGHT_SQUARES = (42, 45, 18, 21)
 PAWN_SQUARES = (19, 20, 27, 28, 35, 36, 43, 44)
+
 WHITE, BLACK = 1, -1
 CHECK_VALUE = 0.5
 CASTLE_VALUE = 1
 
 
 def evaluate_position(board: chess.Board, player):
+    """
+       the evalutaion function for the state of the board,
+       could be improved
+    """
     if board.result() != "*":
         return math.inf if board.result() == "1-0" else -math.inf if board.result() == "0-1" else 0
     curr = WHITE if player == WHITE else BLACK
@@ -106,7 +115,8 @@ def player_move(state):
             print("ValueError: please enter a legal move")
 
 
-DEPTH, AI = 4, WHITE
+#setting the max depth for the minimax tree and which player the computer's playing as
+DEPTH, AI = 4, BLACK
 
 if __name__ == '__main__':
     _board = chess.Board()
@@ -127,14 +137,5 @@ if __name__ == '__main__':
 
         print("{}>time: {}\n{}".format(best.uci(), seconds, _board.unicode(empty_square="▭", invert_color=True)))
         player_move(_board)
-
-    # while True:
-    #     if _board.result() != "*": break
-    #     seconds = t.time()
-    #     best = next_move(_board, AI, DEPTH)
-    #     seconds = math.ceil(t.time() - seconds)
-    #     _board.push_san(best.uci())
-    #     print("{}>time: {}\n{}".format(best.uci(), seconds, _board.unicode(empty_square="▭", invert_color=True)))
-    #     AI = -AI
 
     print(_board.result())
